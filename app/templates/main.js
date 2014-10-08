@@ -6,9 +6,11 @@ navigator.getUserMedia = (
 );
 
 // TODO set constraints based on choices.
-var constraints = {audio: true, video: true}
+var constraints = {}
 ,video = document.querySelector('video');
 
+constraints.audio = <%= constraints.audio %>;
+constraints.video = <%= constraints.video %>;
 
 function success(stream) {
   if (window.URL) {

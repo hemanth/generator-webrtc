@@ -28,8 +28,7 @@ var WebrtcGenerator = yeoman.generators.Base.extend({
         }, {
           name: 'video'
         }, {
-          name: 'both',
-          checked: 'true'
+          name: 'both'
         }
       ],
       validate: function( answer ) {
@@ -40,7 +39,21 @@ var WebrtcGenerator = yeoman.generators.Base.extend({
       }
     }];
     this.prompt(prompts, function (props) {
-      this.constraints = props.constraints;
+      var constraints = {
+        'audio': false,
+        'video': false
+      };
+      this.constraints = props.constraints
+      .reduce(function(obj, key) {
+        if( key == 'both') {
+          constraints['audio'] = true;
+          constraints['video'] = true;
+        } else {
+          constraints[key] = true;
+        }
+        return constraints;
+      }, {}) ;
+      console.log(this.constraints);
       done();
     }.bind(this));
   },
