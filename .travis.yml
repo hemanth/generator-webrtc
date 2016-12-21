@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - '0.10'
+  - 6
 before_install:
   - currentfolder=${PWD##*/}
   - if [ "$currentfolder" != 'generator-webrtc' ]; then cd .. && eval "mv $currentfolder generator-webrtc" && cd generator-webrtc; fi
