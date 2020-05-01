@@ -14,7 +14,9 @@
     "node": ">= 4"
   },
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "files": [
     "app"
@@ -25,12 +27,14 @@
   "dependencies": {
     "yeoman-generator": "^0.23.1",
     "chalk": "^0.5.1",
-    "yosay": "^1.0.0"
+    "yosay": "^1.0.0",
+    "snyk": "^1.316.2"
   },
   "devDependencies": {
     "mocha": "*"
   },
   "peerDependencies": {
     "yo": ">=1.0.0"
-  }
+  },
+  "snyk": true
 }
